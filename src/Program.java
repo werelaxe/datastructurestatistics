@@ -19,7 +19,7 @@ public class Program {
         ArrayList<String> words = WordsParser.parseWords(input);
         ArrayList<String> randomWords = new ArrayList<>();
         try {
-            Scanner in = new Scanner(new File("/home/melon/Desktop/random words")).useDelimiter("\\n");
+            Scanner in = new Scanner(new File("src/random_words.txt")).useDelimiter("\\n");
             while (true) {
                 try {
                     randomWords.add(in.next());
@@ -34,7 +34,7 @@ public class Program {
         try(FileWriter writer = new FileWriter("output.txt", false))
         {
             for (int wordsCount = 1; wordsCount < words.size(); wordsCount += 1000) {
-                long time = Benchmark.TestAddingTime(new TreeMapFrequencyDictionary(), words.subList(0, wordsCount));
+                long time = Benchmark.TestSearchRandomWords(new TreeMapFrequencyDictionary(), words.subList(0, wordsCount), randomWords);
                 writer.write(Long.toString(time));
                 writer.write('\n');
                 System.out.println(100 * (double)(wordsCount) / words.size() + "%");

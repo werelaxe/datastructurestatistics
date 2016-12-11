@@ -30,6 +30,8 @@ public class TreeMapFrequencyDictionary implements IFrequencyDictionary {
         //int size = 0;
         while (true)
         {
+            if (subTree.size()  == 0)
+                break;
             String currentWord = subTree.lastKey();
             if (!currentWord.startsWith(prefix))
                 break;
