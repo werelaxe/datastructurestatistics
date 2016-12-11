@@ -7,6 +7,8 @@ import java.util.Comparator;
 class PairComparator implements Comparator<Pair<String, Integer>> {
     @Override
     public int compare(Pair<String, Integer> a, Pair<String, Integer> b) {
+        if (a.count.equals(b.count))
+            return a.word.compareTo(b.word);
         return b.count.compareTo(a.count);
     }
 }

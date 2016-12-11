@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class WordsParser {
     public static ArrayList<String> parseWords(String input) {
         ArrayList<String> finalWords = new ArrayList<>();
-        for (String s : input.split("[^йцукенгшщзхъфывапролджэячсмить]"))
+        for (String s : input.split("[^а-яА-ЯёЁ\\']"))
             if (!s.equals(""))
                 finalWords.add(s.toLowerCase());
         return finalWords;
