@@ -15,20 +15,11 @@ public class Program {
         } catch (FileNotFoundException e) {
             input = "было было чтобы было молодые способны";
         }
-        /*
-        IFrequencyDictionary dict = new HashMapIFrequencyDictionary();
+        IFrequencyDictionary dict = new HashMapFrequencyDictionary();
         for (String s: WordsParser.parseWords(input))
             dict.add(s);
 
-        for (Pair<String, Integer> key: dict.search(10, "при"))
+        for (Pair<String, Integer> key: dict.search(10, "приез"))
             System.out.println(key);
-        */
-        TreeMapFrequencyDictionary dict = new TreeMapFrequencyDictionary();
-        dict.add("bitch");
-        dict.add("guys");
-        dict.add("hey");
-        dict.add("huy");
-        dict.add("yo");
-        dict.search(0, "hu");
     }
 }

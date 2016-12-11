@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 
-public class HashMapFrequencyDictionary extends FrequencyDictionary {
+public class HashMapFrequencyDictionary implements IFrequencyDictionary {
     public HashMap<String, Integer> data = new HashMap<>();
     @Override
     public void add(String word) {
@@ -21,8 +21,7 @@ public class HashMapFrequencyDictionary extends FrequencyDictionary {
         ArrayList<Pair<String, Integer>> words = new ArrayList<>();
         for (String word: data.keySet())
             if (word.startsWith(prefix)) {
-                if (word.charAt(0) == 'ы')
-                    System.out.println(word);
+                //if (word.charAt(0) == 'ы') System.out.println(word);
                 words.add(new Pair<>(word, data.get(word)));
             }
 

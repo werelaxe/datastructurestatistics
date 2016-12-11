@@ -1,7 +1,4 @@
-import java.util.Comparator;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by melon on 12.12.16.
@@ -29,7 +26,19 @@ public class TreeMapFrequencyDictionary implements IFrequencyDictionary {
     @Override
     public List<Pair<String, Integer>> search(int wordsCount, String prefix) {
         SortedMap<String, Integer> subTree = data.headMap(prefix);
-        System.out.println(subTree.firstKey());
-        return null;
+        ArrayList<Pair<String, Integer>> freqDict = new ArrayList<>();
+        //int size = 0;
+        while (true)
+        {
+            String currentWord = subTree.lastKey();
+            if (!currentWord.startsWith(prefix))
+                break;
+            freqDict.add(new Pair<>(currentWord, subTree.get(currentWord)));
+            subTree = subTree.headMap(currentWord);
+        }
+        freqDict.sort(new PairComparator());
+        if (freqDict.size() < wordsCount)
+            return freqDict;
+        return freqDict.subList(0, wordsCount);
     }
 }
